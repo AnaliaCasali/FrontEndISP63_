@@ -1,0 +1,18 @@
+{{title}}
+<button type="button"    routerLink="/nuevotema"
+class="btn btn-link white btn-lg">
+    <i class="fa fa-plus"></i>
+</button>
+<ul>
+    <li *ngFor="let tema of temas">    
+{{tema.id}}
+{{tema.tema}}
+<button type="button" (click)="delete(tema.id)" 
+class="btn btn-link white btn-lg" >
+    <i class="fa fa-trash"></i>
+</button>
+<button type="button"    routerLink="/editarTema/{{tema.id}}"
+class="btn btn-link white btn-lg">
+    <i class="fa fa-pen"></i>
+</button>
+</li></ul>

@@ -1,0 +1,29 @@
+
+
+<p>carrera works!</p>
+{{title}}
+<button type="button"    routerLink="/nuevacarrera"
+class="btn btn-link white btn-lg">
+    <i class="fa fa-plus"></i>
+</button>
+<ul>
+    <li *ngFor="let carrera of carreras">    
+{{carrera.nombre}}
+{{carrera.horario}}
+{{carrera.numeroPlan}}
+{{carrera.sede}}
+{{carrera.id}}
+{{carrera.campoOcupacional}}
+
+
+  
+
+<button type="button" (click)="delete(carrera.id)" 
+class="btn btn-link white btn-lg" >
+    <i class="fa fa-trash"></i>
+</button>
+<button type="button"    routerLink="/editarCarrera/{{carrera.id}}"
+class="btn btn-link white btn-lg">
+    <i class="fa fa-pen"></i>
+</button>
+</li></ul>

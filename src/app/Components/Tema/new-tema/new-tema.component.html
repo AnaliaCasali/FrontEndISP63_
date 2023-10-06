@@ -1,0 +1,78 @@
+<div class="container" *ngIf="isNew" id="newForm">
+    <h2>Ingresando Nueva tema:</h2>
+    <div class="row">
+<form (ngSubmit)="onCreate()" novalidate #f="ngForm" enctype="multipart/form-data">
+        <div class="form-row row">
+          <div class="col-md-8">
+            <label for="nombre">Nombre del Tema</label>
+            <input type="text" class="form-control"
+              placeholder="Tema"  id="nomTema" name="nomTema"
+              *ngIf="isNew"   [(ngModel)]="nomTema"
+              required
+            />
+          </div>
+  
+          <div class="col-md-4">
+            <label for="guardar"></label>
+            <button
+              type="submit"
+              id="guardar"
+              class="btn btn-primary btn-lg btn-block"
+            >
+              <i class="fa-solid fa-floppy-disk"></i>Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  <!--editando--->
+  <div class="container" *ngIf="tema" id="updateForm" >
+    <h2>Editando Tema:</h2>
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" enctype="multipart/form-data">
+      <div class="row">
+          <input
+            type="hidden"
+            class="form-control"
+            placeholder="Id"
+            id="id"
+            name="id"
+            [(ngModel)]="tema.id"
+            required
+          />
+        <div class="col-md-6">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Tema"
+            id="nomTema"
+            name="nomTema"
+            [(ngModel)]="tema.tema"
+            required
+          />
+        </div>
+  
+  
+    <div class="form-group">
+      <label for="guardar"></label>
+      <button
+        type="submit"
+        id="guardar"
+        name="guardar"
+        class="btn btn-primary btn-lg btn-block"
+      >
+        <i class="fa-solid fa-floppy-disk"></i>Guardar
+      </button>
+    </div>
+  </div>
+  </form>
+  </div>
+  
+  
