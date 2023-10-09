@@ -15,8 +15,9 @@ class="btn btn-link white btn-lg">
 {{carrera.id}}
 {{carrera.campoOcupacional}}
 
-
-  
+<ng-container *ngIf="carrera.imagen">
+    <img  class="image-thumbnail" style="max-width: 100px" [src]="carrera.imagen.imagenUrl" alt="Carrera Image">
+</ng-container>
 
 <button type="button" (click)="delete(carrera.id)" 
 class="btn btn-link white btn-lg" >

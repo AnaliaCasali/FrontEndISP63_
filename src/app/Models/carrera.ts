@@ -1,3 +1,5 @@
+import { Imagen } from "./Imagen";
+
 export class Carrera {
   id?: number;
   nombre?: string;
@@ -5,6 +7,7 @@ export class Carrera {
   numeroPlan?: number;
   campoOcupacional?: string;
   horario?: string;
+  imagen?: Imagen ;
 
   constructor(
     nombre: string,
