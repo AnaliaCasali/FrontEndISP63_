@@ -3,6 +3,7 @@ import { Carrera } from 'src/app/Models/carrera';
 import { CarreraServicesService } from 'src/app/Services/carrera-services.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2'
+import { TemaService } from '../../../Services/tema.service';
 
 @Component({
   selector: 'app-new-carrera',
@@ -22,11 +23,24 @@ export class NewCarreraComponent implements OnInit {
   imagenMin: File | null = null;
   imagen: File | null = null; // Variable to store file
 
+  listaDesplegableData: any[]=[];
+  opcionSeleccionada: any;
+
+
   constructor(
     private carreraService: CarreraServicesService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+    private temaService: TemaService
+  ) {
+    this.cargarTemas();
+
+  }
+  cargarTemas(): void {
+    this.temaService.lista().subscribe((data) => {
+      this.listaDesplegableData = data;
+    });
+  }
 
   ngOnInit(): void {
     if (this.activatedRoute.snapshot.params['id'] === undefined)

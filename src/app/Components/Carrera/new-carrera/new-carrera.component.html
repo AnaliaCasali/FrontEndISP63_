@@ -24,7 +24,11 @@
           />
         </div>
       </div>
-
+      <div>
+        <select [(ngModel)]="opcionSeleccionada">
+          <option *ngFor="let opcion of listaDesplegableData" [value]="opcion">{{ opcion.tema }}</option>
+        </select>
+      </div>
       <div class="form-row row">
         <div class="col-md-3">
           <label for="horario">horario</label>
@@ -39,11 +43,11 @@
           />
         </div>
         <div class="col-md-3">
-          <label for="plan">Nº Plan</label>
+          <label for="plan" rol="etiqueta Plan">Nº Plan</label>
           <input
             type="text"
             class="form-control"
-            placeholder="Plan"
+            placeholder="Ingrese el nro de Plan"
             id="plan"
             name="plan"
             [(ngModel)]="plan"
